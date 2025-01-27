@@ -1,7 +1,7 @@
 self.addEventListener('push', function (event) {
     var options = {
-        body: 'This notification was generated from a push!',
-        icon: 'images/example.png',
+        body: 'Esta é uma notificação de teste do FlowTime',
+        icon: 'LOGOTIPOICON.png',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -13,6 +13,6 @@ self.addEventListener('push', function (event) {
         ]
     }
     event.waitUntil(
-        self.registration.showNotification('Ola Eduardo', options)
+        self.registration.showNotification('Olá Mundo', options)
     );
  })
