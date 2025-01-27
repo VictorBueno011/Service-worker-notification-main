@@ -11,5 +11,12 @@ push.setVapidDetails(
     vapidKeys.privateKey
 );
 
-let subscription = {}
+let subscription = {
+    endpoint: "https://fcm.googleapis.com/fcm/send/dwqMU533BtE:APA91bHIgap8nj6P4qKdgkwczxFqlQj5ca0oWZO7EAi48iYVPYkmKZDzxgw14X_XD1F5TxPTBlDr-h1nfnRDbU9oHuFk-PGL-IZ5gBeldAXtmtIULlYnI1RGbj7vWUV0G9GSYmHxmte0",
+    expirationTime: null,
+    keys: {
+        p256dh: "BIYC6YlI7JaguqWLpRwmEpTUcMDw0lsRLqYWhBM21IAUDbomH4Z1ZrCf1F7KUFodGTybZkIg8KsH5lGagrdNeHc",
+        auth: "gzTKwAMvQCG7IEL6Mr6Fcg"
+    }
+}
 push.sendNotification(subscription, 'test message');
