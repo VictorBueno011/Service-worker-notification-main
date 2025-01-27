@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="subscribe()" >Inscrever</button>
+<script>
+
+    addEventListener('load', async () => {
+        const sw = await navigator.serviceWorker.register('sw.js');
+        console.log('SW registrado', sw);
+    });
+
+    async function subscribe() {
+        const sw = await navigator.serviceWorker.ready;
+        const push = await sw.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: 'BIY1vnxdH88Ew2z9voj7tQgwgSo-XInOk0HYb4hCmxaB711ONZue23HkWQhRBU1RqeklmzWw8Kjq_GvOBAuJe3Y'
+        })}
+    console.log('Push inscrito', JSON.stringify(push));
+</script>
+</body>
+</html>
