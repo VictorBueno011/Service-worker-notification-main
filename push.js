@@ -17,18 +17,39 @@ let subscriptions = [
     { "endpoint": "https://fcm.googleapis.com/fcm/send/fFTovr16Eng:APA91bEuErH-GSMH8CDNl8PYjl_GGec_4SpcSDIplsECEmsSSMnZyocNSpmEj62dv7Cmg4avrAIXVz_109jQOxT8C8j2AAFevZTur8pkpHAg-x6pPIs8txl8uWd9dxkLOU9vUAjgzz-R", "expirationTime": null, "keys": { "p256dh": "BLlfdmiO9fFBi3LFMi5rWUoRtjJAFbUARdePlKQmaV-NPFxNP9bExiIx0M1a-_L6wzLItqjOzrD-KaeFNneRjRc", "auth": "I_3xFPFKyodrInR7THj5Aw" } }
 ];
 
-let notificationPayload = {
-    title: 'Nova Notificação',
-    body: 'Esta é uma notificação personalizada',
-    icon: 'LOGOTIPOICON.png',
-    vibrate: [100, 50, 100],
-    primaryKey: '1',
-    actions: [
-        { action: 'explore', title: 'Explore this new world', icon: 'images/checkmark.png' },
-        { action: 'close', title: 'Close', icon: 'images/xmark.png' },
-    ]
-};
-
-subscriptions.forEach(subscription => {
-    push.sendNotification(subscription, JSON.stringify(notificationPayload));
-});
+let notificationPayload = [
+    {
+        title: 'Nova Notificação 1',
+        body: 'Esta é uma notificação personalizada',
+        icon: 'LOGOTIPOICON.png',
+        vibrate: [100, 50, 100],
+        primaryKey: '1',
+        actions: [
+            { action: 'explore', title: 'Explore this new world', icon: 'images/checkmark.png' },
+            { action: 'close', title: 'Close', icon: 'images/xmark.png' },
+        ]
+    },
+    {
+        title: 'Nova Notificação 2',
+        body: 'Esta é uma notificação personalizada',
+        icon: 'LOGOTIPOICON.png',
+        vibrate: [100, 50, 100],
+        primaryKey: '1',
+        actions: [
+            { action: 'explore', title: 'Explore this new world', icon: 'images/checkmark.png' },
+            { action: 'close', title: 'Close', icon: 'images/xmark.png' },
+        ]
+    }
+]
+setInterval(() => {
+    console.log('Enviando notificação 1 ...');
+    subscriptions.forEach(subscription => {
+        push.sendNotification(subscription, JSON.stringify(notificationPayload[0]));
+    });
+}, 1000);
+// setInterval(() => {
+//     console.log('Enviando notificação 2 ...');
+//     subscriptions.forEach(subscription => {
+//         push.sendNotification(subscription, JSON.stringify(notificationPayload[1]));
+//     });
+// }, 2000);
