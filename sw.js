@@ -7,20 +7,21 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('push', function (event) {
-    var options = {
-        body: 'Esta é uma notificação de teste do FlowTime',
-        icon: 'LOGOTIPOICON.png',
-        vibrate: [100, 50, 100],
+    const data = event.data.json();
+    const options = {
+        body: data.body,
+        icon: data.icon || 'LOGOTIPOICON.png',
+        vibrate: data.vibrate || [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
-            primaryKey: '2'
+            primaryKey: data.primaryKey || '2'
         },
-        actions: [
+        actions: data.actions || [
             { action: 'explore', title: 'Explore this new world', icon: 'images/checkmark.png' },
             { action: 'close', title: 'Close', icon: 'images/xmark.png' },
         ]
     };
     event.waitUntil(
-        self.registration.showNotification('Olá Teste', options)
+        self.registration.showNotification(data.title, options)
     );
 });
