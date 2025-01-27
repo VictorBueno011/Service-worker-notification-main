@@ -13,6 +13,6 @@ self.addEventListener('push', function (event) {
         ]
     }
     event.waitUntil(
-        self.registration.showNotification('Olá Mundo', options)
+        self.registration.showNotification('Olá Flow', options)
     );
  })
