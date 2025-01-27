@@ -7,13 +7,24 @@
 </head>
 <body>
     
-    <button onclick="subscribe()" >Inscrever</button>
+    <button onclick="subscribe()">Inscrever</button>
     <textarea name="" id="id"></textarea>
 <script>
-
     addEventListener('load', async () => {
         const sw = await navigator.serviceWorker.register('sw.js');
         console.log('SW registrado', sw);
+
+        sw.addEventListener('updatefound', () => {
+            const newWorker = sw.installing;
+            newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // Nova versão do Service Worker disponível
+                    if (confirm('Nova versão disponível. Deseja atualizar?')) {
+                        window.location.reload();
+                    }
+                }
+            });
+        });
     });
 
     async function subscribe() {
@@ -21,13 +32,12 @@
         const push = await sw.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: 'BIY1vnxdH88Ew2z9voj7tQgwgSo-XInOk0HYb4hCmxaB711ONZue23HkWQhRBU1RqeklmzWw8Kjq_GvOBAuJe3Y'
-        })
+        });
         console.log('Push inscrito', JSON.stringify(push));
         let textarea = document.getElementById('id');
         textarea.value = JSON.stringify(push);
     }
     document.addEventListener('DOMContentLoaded', subscribe);
-    
 </script>
 </body>
 </html>
