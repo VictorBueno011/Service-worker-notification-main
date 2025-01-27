@@ -11,12 +11,5 @@ push.setVapidDetails(
     vapidKeys.privateKey
 );
 
-let subscription = {
-    endpoint: "https://fcm.googleapis.com/fcm/send/dwqMU533BtE:APA91bHIgap8nj6P4qKdgkwczxFqlQj5ca0oWZO7EAi48iYVPYkmKZDzxgw14X_XD1F5TxPTBlDr-h1nfnRDbU9oHuFk-PGL-IZ5gBeldAXtmtIULlYnI1RGbj7vWUV0G9GSYmHxmte0",
-    expirationTime: null,
-    keys: {
-        p256dh: "BIYC6YlI7JaguqWLpRwmEpTUcMDw0lsRLqYWhBM21IAUDbomH4Z1ZrCf1F7KUFodGTybZkIg8KsH5lGagrdNeHc",
-        auth: "gzTKwAMvQCG7IEL6Mr6Fcg"
-    }
-}
+let subscription = { "endpoint": "https://fcm.googleapis.com/fcm/send/d2gmvv_vUCw:APA91bE06xLf6C2cBlkI1jkqLOpp0mjdwTPaTQklidnbHcEG-uhDjeb9cCsxrHEeq8NTLgrblcUVIa9MTwESKxQqSHNxL0dDVxmlY2ryp6jOdGHdunlBUtGimLgejBB6O8hgSkrnXz4b", "expirationTime": null, "keys": { "p256dh": "BEMelFc3ZtP8n_BblhUHZTQTPJLW0192l5frSyATWhDouvl0E-Z-cCkZ0E63su2qbP4Dv5Lu6RCSnWUIoK3tC-8", "auth": "_ZLWMi_s5pf1c-NUdwJkrQ" } }
 push.sendNotification(subscription, 'test message');

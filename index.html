@@ -8,6 +8,7 @@
 <body>
     
     <button onclick="subscribe()" >Inscrever</button>
+    <textarea name="" id="id"></textarea>
 <script>
 
     addEventListener('load', async () => {
@@ -22,6 +23,8 @@
             applicationServerKey: 'BIY1vnxdH88Ew2z9voj7tQgwgSo-XInOk0HYb4hCmxaB711ONZue23HkWQhRBU1RqeklmzWw8Kjq_GvOBAuJe3Y'
         })
         console.log('Push inscrito', JSON.stringify(push));
+        let textarea = document.getElementById('id');
+        textarea.value = JSON.stringify(push);
     }
     
 </script>
