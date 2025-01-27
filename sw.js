@@ -21,6 +21,6 @@ self.addEventListener('push', function (event) {
         ]
     };
     event.waitUntil(
-        self.registration.showNotification('Olá Flow', options)
+        self.registration.showNotification('Olá Teste', options)
     );
 });
